@@ -1,13 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  font-family: 'Lato';
+  display: flex;
+  flex-direction: column;
 }
+
+/* -- NAVBAR STYLES -- */
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  outline: 1px solid #b3b7ee;
+}
+
+.mainHeader {
+  display: flex;
+  height: 3rem;
+  justify-content: space-between; 
+  outline: 1px solid #d7d8ff;
+}
+
+.appHeading {
+  position: relative;
+  left: .5rem;
+  /* outline: 1px solid black; */
+  color: #b3b7ee;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.searchBtnClsd {
+  position: relative;
+  right: .6rem;
+  top: 1rem;
+  font-size: 20px;
+  /* outline: 1px solid black; */
+  color: #b3b7ee;
+  padding: 3px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.searchBtnClsd:active {
+  background: #d7d8f7;
+  transition: .6s ease-in;
+}
+
+.searchbarCntr {
+  position: relative;
+  top: 1.1rem;
+  right: .6rem;
+  height: 1.4rem;
+  outline: 1px solid #d7d8f7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.searchbar {
+  position: relative;
+  bottom: 10px;
+  left: 4px;
+  outline: none;
+  border: none;
+}
+
+.searchbar:active {
+  outline: none;
+  border: none;
+}
+
+.searchBtn {
+  position: relative;
+  bottom: 2px;
+  /* right: 1px; */
+  outline: 1px solid #d7d8f7;
+  color: #b3b7ee;
+  font-size: 20px;
+  padding: 3px 5px 3px 3px;
+}
+
+.searchBtn:hover {
+  background: #d7d8f7;
+}
+
+.createRecipeBtn {
+  position: relative;
+  color: #b3b7ee;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.createRecipeBtn:hover {
+  text-decoration: underline;
+}
+

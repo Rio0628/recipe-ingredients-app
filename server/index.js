@@ -1,13 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db');
 const recipeRouter = require('./routes/recipe-router');
 const app = express();
 const apiPort = 3000;
 
-
-// app.use(express.urlencoded({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
 app.use(cors());
 app.use(express.json());
