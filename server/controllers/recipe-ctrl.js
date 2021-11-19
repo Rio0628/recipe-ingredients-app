@@ -2,7 +2,7 @@ const Recipe = require('../models/recipe-model');
 
 createRecipe = (req, res) => {
     const body = req.body;
-    
+
     if (!body) {
         return res.status(400).json({
             success: false,
@@ -20,7 +20,7 @@ createRecipe = (req, res) => {
         .then(() => {
             return res.status(201).json({
                 success: true,
-                id: movie._id,
+                id: recipe._id,
                 message: 'Recipe Created!',
             }) 
         })
