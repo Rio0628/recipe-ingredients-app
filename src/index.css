@@ -267,7 +267,7 @@ body {
   font-weight: 600;
   line-height: 20px;
   padding: 0px 3px;  
-  background: #e2dfdf;
+  background: rgba(226, 223, 223, .5);
   border-radius: 5px;
 }
 
@@ -284,7 +284,7 @@ body {
   color: darkred;
   padding: 1px;
   /* outline: 1px solid black; */
-  border-radius: 50%;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -327,3 +327,92 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* -- CREATE RECIPE STYLES -- */
+
+.createRecipeCntr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: 1px solid #d7d8f7;
+}
+
+.recipeNameInput {
+  position: relative;
+  top: 3px;
+  /* left: 15%; */
+  width: 13rem;
+  border: none;
+  outline: 1px solid #d7d8f7;
+  border-radius: 3px;
+}
+
+
+.createRecipeCntr .addIngrdtCntr {
+  top: 7px;
+  display: flex;
+  /* align-items: center; */
+  /* outline: 1px solid green; */
+}
+
+.createRecipeCntr .addIngrdtInput {
+  height: 1rem;
+  left: -3px;
+  top: 1px;
+}
+
+.createRecipeCntr .addIngrdtBtn {
+  position: relative;
+  padding: 1px;
+  left: 2px;
+  /* top: 1px; */
+  border-radius: 4px;
+  background: #d7d8f7;
+  cursor: pointer;
+}
+
+.createRecipeCntr .ingrdtsCntr {
+  top: 12px;
+  grid-template-rows: repeat(12, 25px);
+  outline: 1px solid #d7d8f7;
+  box-shadow: 1px 1px 4px #d7d8f7, -1px -1px 4px #d7d8f7;
+  /* outline: 1px solid black; */
+}
+
+.createBtn {
+  position: relative;
+  right: 20%;
+  top: 18px;
+  width: 5rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 2px;
+  border-radius: 4px;
+  background: #d7d8f7;
+  cursor: pointer;
+}
+
+.createRecipeCntr .cancelBtn {
+  left: 20%;
+  top: -5px;
+}
+
+/* 'createRecipeCntr'>
+            <input placeholder='Enter Recipe Name...' className='recipeNameInput'/>
+            
+            <div className='addIngrdtCntr'>
+                <input placeholder='Add Ingredient...' className='addIngrdtInput'/>
+                <div className='addIngrdtBtn'>Add</div>
+            </div>
+
+            <div className='ingrdtsCntr'>
+                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+            </div>
+
+            <div className='confirmBtn'>Create</div>
+            <div className='cancelBtn'>Cancel</div> */

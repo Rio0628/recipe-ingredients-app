@@ -20,11 +20,14 @@ function App() {
         </div>
 
         <div className='createRecipeBtn'>Create Recipe</div>
+        
+        <CreateRecipe />
       </div>
 
       <div className='indRecipesCntr'>
         <IndRecipe />
       </div>
+
     </div>
   );
 }
