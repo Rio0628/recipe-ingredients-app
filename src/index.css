@@ -21,7 +21,7 @@ body {
 
 .mainHeader {
   display: flex;
-  height: 3rem;
+  height: 2.7rem;
   justify-content: space-between; 
   outline: 1px solid #d7d8ff;
 }
@@ -56,7 +56,7 @@ body {
 
 .searchbarCntr {
   position: relative;
-  top: 1.1rem;
+  top: 1.05rem;
   right: .6rem;
   height: 1.4rem;
   outline: 1px solid #d7d8f7;
@@ -85,6 +85,7 @@ body {
   color: #b3b7ee;
   font-size: 20px;
   padding: 3px 5px 3px 3px;
+  cursor: pointer;
 }
 
 .searchBtn:hover {
@@ -96,6 +97,7 @@ body {
   color: #b3b7ee;
   font-weight: 600;
   text-align: center;
+  padding: 1px;
   letter-spacing: 2px;
   cursor: pointer;
 }
@@ -104,3 +106,77 @@ body {
   text-decoration: underline;
 }
 
+/* -- IND RECIPE STYLES -- */
+
+.indRecipesCntr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* background: sred; */
+  /* outline: 1px solid red; */
+}
+
+.indRecipesCntr::-webkit-scrollbar {
+  width: 2px;
+  background: none;
+}
+
+.indRecipeClsd {
+  width: 17rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #d7d8f7, -2px -2px 4px #d7d8f7;
+}
+
+.recipeName {
+  position: relative;
+  top: 7px;
+  left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #333333;
+}
+
+.editBtn {
+  position: relative;
+  left: 38%;
+  top: 15px;
+  width: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 2px;
+  border-radius: 4px;
+  background: #d7d8f7;
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  color: #fbf9ff;
+  background: #b3b7ee;
+  transition: .125s all;
+}
+
+.removeBtn {
+  position: relative;
+  left: 64%;
+  bottom: 8px;
+  width: 5rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  color: #fbf9ff;
+  background: #b3b7ee;
+  transition: .125s all;
+}
