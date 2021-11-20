@@ -119,15 +119,11 @@ body {
   /* outline: 1px solid red; */
 }
 
-.indRecipesCntr::-webkit-scrollbar {
-  width: 2px;
-  background: none;
-}
-
-.indRecipeClsd, .indRecipeOpen {
+.indRecipeClsd, .indRecipeOpen, .indRecipeEdit {
   width: 17rem;
   border-radius: 5px;
   box-shadow: 2px 2px 4px #d7d8f7, -2px -2px 4px #d7d8f7;
+  outline: 2px solid #d7d8f7;
 }
 
 .recipeName {
@@ -155,7 +151,7 @@ body {
   cursor: pointer;
 }
 
-.editBtn:hover {
+.editBtn:hover, .removeBtn:hover {
   color: #fbf9ff;
   background: #b3b7ee;
   transition: .125s all;
@@ -173,12 +169,6 @@ body {
   padding: 2px;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.removeBtn:hover {
-  color: #fbf9ff;
-  background: #b3b7ee;
-  transition: .125s all;
 }
 
 .ingrdtsHeading {
@@ -202,7 +192,14 @@ body {
   /* grid-row-gap: 10px; */
   height: 5rem;
   /* box-shadow: 1px 1px 1px #d7d8f7, -1px -1px 1px #d7d8f7; */
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* outline: 1px solid black; */
+}
+
+.ingrdtsCntr::-webkit-scrollbar{
+  width: 2px;
+  background: none;
 }
 
 .indIngrdt {
@@ -217,9 +214,116 @@ body {
   /* outline: 1px solid black; */
 }
 
-/*    <p className='ingrdtsHeading'>Ingredients</p>
+.addIngrdtCntr {
+  position: relative;
+  display: flex;
+  bottom: 5px;
 
-                <div className='ingrdtsCntr'>
-                    <p className='indIngrdt'>Ingredient</p>
-                </div>
- */
+}
+
+.addIngrdtInput {
+  position: relative;
+  left: 10px;
+  font-size: 13px;
+  border: none;
+  padding: 2px 4px;
+  outline: 1px solid #e2dfdf;
+  border-radius: 5px;
+}
+
+.addIngrdtBtn {
+  position: relative;
+  left: 5%;
+  /* bottom: 8px; */
+  width: 3rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 3px;
+  border-radius: 4px;
+  background: #d7d8f7;
+  cursor: pointer;
+}
+
+.indRecipeEdit .ingrdtsCntr {
+  top: 5px;
+  left: 6px;
+  width: 16.3rem;
+  grid-template-columns: repeat(3, 5.35rem);
+  grid-template-rows: repeat(12, 25px);
+  outline: 1px solid #d7d8f7;
+  /* box-shadow: 1px 1px 2px #d7d8f7, -1px -1px 2px #d7d8f7; */
+}
+
+.indIngrdtAdd {
+  position: relative;
+  left: 5px;
+  top: 5px;
+  height: 1.2rem;
+  width: 4.5rem; 
+  display: flex;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 0px 3px;  
+  background: #e2dfdf;
+  border-radius: 5px;
+}
+
+.indIngrdtAdd p {
+  position: relative;
+  left: 2px;
+  bottom: 11px;
+  height: 13px;
+  width: 13px;
+  line-height: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  color: darkred;
+  padding: 1px;
+  /* outline: 1px solid black; */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.indIngrdtAdd p:hover {
+  background: #fbf9ff;
+  /* color: red; */
+}
+
+.confirmBtn {
+  position: relative;
+  left: 15%;
+  top: 15px;
+  width: 5rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 2px;
+  border-radius: 4px;
+  background: #d7d8f7;
+  cursor: pointer;
+}
+
+.confirmBtn:hover, .cancelBtn:hover, .addIngrdtBtn:hover {
+  color: #fbf9ff;
+  background: #b3b7ee;
+  transition: .125s all;
+}
+
+.cancelBtn {
+  position: relative;
+  left: 52%;
+  bottom: 8px;
+  width: 5rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}

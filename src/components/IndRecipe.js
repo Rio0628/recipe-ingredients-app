@@ -22,6 +22,25 @@ const IndRecipe = () => {
                 <div className='editBtn'>Edit</div>
                 <div className='removeBtn'>Remove</div>
            </div>
+
+           <div className='indRecipeEdit'>
+                <p className='recipeName'>Recipe</p>
+        
+                <div className='addIngrdtCntr'>
+                    <input placeholder='Add Ingredient...' className='addIngrdtInput'/>
+                    <div className='addIngrdtBtn'>Add</div>
+                </div>
+
+                <div className='ingrdtsCntr'>
+                    <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                    <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                    <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                    <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                </div>
+
+                <div className='confirmBtn'>Confirm</div>
+                <div className='cancelBtn'>Cancel</div>
+           </div>
         </div>
     )
 }
