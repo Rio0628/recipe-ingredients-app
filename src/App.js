@@ -24,7 +24,6 @@ function App() {
 
       <div className='indRecipesCntr'>
         <IndRecipe />
-        <IndRecipe />
       </div>
     </div>
   );

@@ -124,7 +124,7 @@ body {
   background: none;
 }
 
-.indRecipeClsd {
+.indRecipeClsd, .indRecipeOpen {
   width: 17rem;
   border-radius: 5px;
   box-shadow: 2px 2px 4px #d7d8f7, -2px -2px 4px #d7d8f7;
@@ -134,9 +134,9 @@ body {
   position: relative;
   top: 7px;
   left: 10px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   color: #333333;
 }
 
@@ -180,3 +180,46 @@ body {
   background: #b3b7ee;
   transition: .125s all;
 }
+
+.ingrdtsHeading {
+  position: relative;
+  left: 10px;
+  bottom: 5px;
+  width: 5rem;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 2px;
+  /* outline: 1px solid red; */
+}
+
+.ingrdtsCntr {
+  position: relative;
+  /* left: 10px; */
+  bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 5.5rem);
+  grid-template-rows: repeat(12, 20px);
+  /* grid-row-gap: 10px; */
+  height: 5rem;
+  /* box-shadow: 1px 1px 1px #d7d8f7, -1px -1px 1px #d7d8f7; */
+  overflow: auto;
+}
+
+.indIngrdt {
+  position: relative;
+  left: 8px;
+  top: -10px;
+  width: 5rem;
+  height: 1rem;
+  font-size: 15px;
+  text-align: center;
+  color: #333333;
+  /* outline: 1px solid black; */
+}
+
+/*    <p className='ingrdtsHeading'>Ingredients</p>
+
+                <div className='ingrdtsCntr'>
+                    <p className='indIngrdt'>Ingredient</p>
+                </div>
+ */
