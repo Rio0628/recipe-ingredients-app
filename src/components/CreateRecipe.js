@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CreateRecipe = () => {
+const CreateRecipe = (props) => {
     return (
         <div className='createRecipeCntr'>
             <input placeholder='Enter Recipe Name...' className='recipeNameInput'/>
@@ -21,8 +21,8 @@ const CreateRecipe = () => {
 
             
             <div className='createCnclBtns'>
-                <div className='createBtn'>Create</div>
-                <div className='cancelBtn'>Cancel</div>
+                <div className='createBtn' onClick={props.onClick}>Create</div>
+                <div className='cancelBtn' id='cnclCreate' onClick={props.onClick}>Cancel</div>
             </div>
         </div>
     );

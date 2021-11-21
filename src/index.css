@@ -113,6 +113,7 @@ body {
   flex-direction: column;
   align-items: center;
   outline: 1px solid #d7d8f7;
+  transition: .2s all;
 }
 
 .recipeNameInput {
@@ -237,7 +238,7 @@ body {
   cursor: pointer;
 }
 
-.editBtn:hover, .removeBtn:hover {
+.editBtn:hover, .removeBtn:hover, .createBtn:hover {
   color: #fbf9ff;
   background: #b3b7ee;
   transition: .125s all;
