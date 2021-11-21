@@ -20,6 +20,8 @@ const IndRecipe = () => {
                     <p className='indIngrdt'>Ingredient</p>
                     <p className='indIngrdt'>Ingredient</p>
                     <p className='indIngrdt'>Ingredient</p>
+                    <p className='indIngrdt'>Ingredient</p>
+                    <p className='indIngrdt'>Ingredient</p>
                 </div>
 
                 <div className='editBtn'>Edit</div>
@@ -35,6 +37,8 @@ const IndRecipe = () => {
                 </div>
 
                 <div className='ingrdtsCntr'>
+                    <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                    <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
                     <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
                     <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
                     <div className='indIngrdtAdd'>Ingredient <p>X</p></div>

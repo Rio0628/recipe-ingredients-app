@@ -15,6 +15,8 @@ const CreateRecipe = () => {
                 <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
                 <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
                 <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
+                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
             </div>
 
             
