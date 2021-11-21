@@ -4,12 +4,16 @@ import IndRecipe from './components/IndRecipe';
 import CreateRecipe from './components/CreateRecipe';
 
 function App() {
+  const [ currentRecipe, setCurrentRecipe ] = useState({ recipe: '', open: false, editOn: false })
   const [ showSearchbar, setShowSearchbar ] = useState(false);
   const [ showCreateComp, setShowCreateComp ] = useState(false);
   const [ searchInput, setSearchInput ] = useState('');
   const [ newRecipeName, setNewRecipeName ] = useState('');
   const [ newIngredient, setNewIngredient ] = useState('');
+  const [ crntRecipeIngrdnts, setCrntRecipeIngrdnts ] = useState();
 
+  const indRecipeCntr = [];
+    
   const handleChange = (e) => {
     console.log(e.target)
 
@@ -38,9 +42,11 @@ function App() {
     }
   } 
 
-  console.log(newRecipeName)
-  console.log(newIngredient )
-  console.log(searchInput)
+  for (let i = 0; i < 2; i++) {
+    indRecipeCntr.push( <IndRecipe currentRecipe={currentRecipe} number={i} onClick={handleClick} key={'recipe ' + i}/> )
+  }
+
+  console.log(currentRecipe)
 
   return (
     <div className="container">
@@ -63,7 +69,7 @@ function App() {
       </div>
 
       <div className='indRecipesCntr'>
-        <IndRecipe onClick={handleClick} onChange={handleChange}/>
+        {indRecipeCntr}
       </div>
 
     </div>

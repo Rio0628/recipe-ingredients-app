@@ -1,16 +1,18 @@
 import React from 'react';
 
 const IndRecipe = (props) => {
+    
+
     return (
-        <div className='indRecipeCntr'>
-           <div className='indRecipeClsd'>
+        <div className='indRecipeCntr' onClick={props.onClick}>
+           <div className='indRecipeClsd' recipe={props.number}>
                 <p className='recipeName'>Recipe</p>
 
                 <div className='editBtn' onClick={props.onClick}>Edit</div>
                 <div className='removeBtn' onClick={props.onClick}>Remove</div>
            </div>
             
-           <div className='indRecipeOpen'>
+           <div className='indRecipeOpen' recipe={props.number}>
                 <p className='recipeName'>Recipe</p>
 
                 <p className='ingrdtsHeading'>Ingredients</p>

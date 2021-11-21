@@ -211,7 +211,14 @@ body {
   border-radius: 5px;
   box-shadow: 2px 2px 4px #d7d8f7, -2px -2px 4px #d7d8f7;
   outline: 2px solid #d7d8f7;
+  cursor: pointer;
 }
+
+.indRecipeClsd:hover, .indRecipeOpen:hover {
+  background: rgba(225, 220, 225, .2);
+}
+
+.indRecipeEdit { cursor: auto; }
 
 .recipeName {
   position: relative;
@@ -221,6 +228,7 @@ body {
   font-weight: 600;
   letter-spacing: 3px;
   color: #333333;
+  pointer-events: none;
 }
 
 .editBtn {
