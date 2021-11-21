@@ -106,6 +106,87 @@ body {
   text-decoration: underline;
 }
 
+/* -- CREATE RECIPE STYLES -- */
+
+.createRecipeCntr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: 1px solid #d7d8f7;
+}
+
+.recipeNameInput {
+  position: relative;
+  top: 3px;
+  /* left: 15%; */
+  width: 13rem;
+  border: none;
+  outline: 1px solid #d7d8f7;
+  border-radius: 3px;
+}
+
+
+.createRecipeCntr .addIngrdtCntr {
+  top: 7px;
+  display: flex;
+  /* align-items: center; */
+  /* outline: 1px solid green; */
+}
+
+.createRecipeCntr .addIngrdtInput {
+  height: 1rem;
+  left: -3px;
+  top: 1px;
+}
+
+.createRecipeCntr .addIngrdtBtn {
+  position: relative;
+  padding: 1px;
+  left: 2px;
+  /* top: 1px; */
+  border-radius: 4px;
+  background: #d7d8f7;
+  cursor: pointer;
+}
+
+.createRecipeCntr .ingrdtsCntr {
+  top: 12px;
+  grid-template-rows: repeat(12, 25px);
+  outline: 1px solid #d7d8f7;
+  box-shadow: 1px 1px 4px #d7d8f7, -1px -1px 4px #d7d8f7;
+  /* outline: 1px solid black; */
+}
+
+.createCnclBtns {
+  display: flex;
+  justify-content: space-between;
+  width: 16rem;
+  height: 3rem;
+  /* outline: 1px solid black; */
+}
+
+.createBtn {
+  position: relative;
+  /* right: 20%; */
+  top: 18px;
+  width: 5rem;
+  height: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #333333;
+  padding: 2px;
+  border-radius: 4px;
+  background: #d7d8f7;
+  cursor: pointer;
+}
+
+.createRecipeCntr .cancelBtn {
+  left: 0;
+  top: 17px;
+  height: 1.3rem;
+}
+
 /* -- IND RECIPE STYLES -- */
 
 .indRecipesCntr {
@@ -117,6 +198,11 @@ body {
   overflow-x: hidden;
   /* background: sred; */
   /* outline: 1px solid red; */
+}
+
+.indRecipesCntr::-webkit-scrollbar {
+  width: 2px;
+  background: none;
 }
 
 .indRecipeClsd, .indRecipeOpen, .indRecipeEdit {
@@ -328,91 +414,163 @@ body {
   cursor: pointer;
 }
 
-/* -- CREATE RECIPE STYLES -- */
 
-.createRecipeCntr {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  outline: 1px solid #d7d8f7;
+@media screen and (min-width: 600px) {
+  .mainHeader {
+    height: 3.2rem;
+  }
+
+  .appHeading {
+    top: -6px;
+    left: 1rem;
+    font-size: 22px;
+  }
+
+  .searchBtnClsd {
+    font-size: 22px;
+    right: 1.1rem;
+  }
+
+  .searchbarCntr {
+    height: 1.6rem;
+    width: 20rem;
+    right: 1rem;
+  }
+
+  .searchbar {
+    /* outline: 1px solid black; */
+    left: 8px;
+    bottom: 13px;
+    width: 16rem;
+    font-size: 15px;
+  }
+
+  .searchBtn {
+    left: 24px;
+    bottom: 3px;
+    font-size: 22px;
+    padding: 5px 10px 5px 5px;
+  }
+
+  .createRecipeBtn { font-size: 18px; }
+
+  .recipeNameInput {
+    top: 5px;
+    width: 16rem;
+    height: 1.1rem;
+    padding: 2px 5px;
+  }
+
+  .createRecipeCntr .addIngrdtCntr { 
+    top: 9px;
+    grid-template-rows: repeat(12, 25px);
+  }
+
+  .createRecipeCntr .indIngrdtAdd {
+    left: 6px;
+  }
+
+  .createRecipeCntr .addIngrdtInput {
+    height: 1.1rem;
+    width: 12rem;
+    padding: 2px 5px; 
+  }
+
+  .createRecipeCntr .addIngrdtBtn {
+    letter-spacing: 4px;
+    padding: 2px 6px;
+  }
+
+  .createRecipeCntr .ingrdtsCntr { top: 14px;}
+
+  .createCnclBtns { 
+    height: 3.2rem;
+    width:  17rem;
+  }
+
+  .createBtn {
+    top: 20px;
+    height: 1.4rem;
+    font-size: 17px;
+  }
+
+  .createRecipeCntr .cancelBtn {
+    top: 20px;
+    height: 1.4rem;
+  }
+
+  .indRecipeClsd, .indRecipeOpen, .indRecipeEdit {
+    width: 20rem;
+  }
+
+  .recipeName {
+    font-size: 23px;
+  }
+
+  .editBtn {
+    left: 37%;
+    width: 4.2rem;
+    font-size: 18px;
+  }
+
+  .removeBtn {
+    bottom: 10.5px;
+    width: 5.5rem;
+    font-size: 18px;
+  }
+
+  .ingrdtsHeading {
+    bottom: 8px;
+    font-size: 17px;
+  }
+
+  .ingrdtsCntr {
+    height: 5.5rem;
+    grid-template-columns: repeat(3, 6rem);
+    grid-template-rows: repeat(12, 25px);
+    outline: 1px solid black;
+  }
+
+  .indIngrdt {
+    font-size: 17px;
+    left: 20px;
+    /* outline: 1px solid black; */
+  }
+
+  .addIngrdtInput {
+    font-size: 15px
+  }
+
+  .addIngrdtBtn {
+    width: 4rem;
+    letter-spacing: 4px;
+  }
+
+  .indRecipeEdit .ingrdtsCntr {
+    left: 10px;
+    width: 18.7rem;
+    grid-template-columns: repeat(3, 6rem);
+    grid-template-rows: repeat(12, 27px);
+  }
+
+  .indIngrdtAdd {
+    left: 9px;
+    width: 5rem;
+    font-size: 14px;
+  }
+
+  .indIngrdtAdd p {
+    font-size: 14px;
+  }
+
+  .confirmBtn, .cancelBtn {
+    left: 11%;
+    width: 6.2rem;
+    font-size: 18px;
+  }
+
+  .cancelBtn {
+    left: 57%;
+    bottom: 10.5px;
+  }
 }
-
-.recipeNameInput {
-  position: relative;
-  top: 3px;
-  /* left: 15%; */
-  width: 13rem;
-  border: none;
-  outline: 1px solid #d7d8f7;
-  border-radius: 3px;
-}
-
-
-.createRecipeCntr .addIngrdtCntr {
-  top: 7px;
-  display: flex;
-  /* align-items: center; */
-  /* outline: 1px solid green; */
-}
-
-.createRecipeCntr .addIngrdtInput {
-  height: 1rem;
-  left: -3px;
-  top: 1px;
-}
-
-.createRecipeCntr .addIngrdtBtn {
-  position: relative;
-  padding: 1px;
-  left: 2px;
-  /* top: 1px; */
-  border-radius: 4px;
-  background: #d7d8f7;
-  cursor: pointer;
-}
-
-.createRecipeCntr .ingrdtsCntr {
-  top: 12px;
-  grid-template-rows: repeat(12, 25px);
-  outline: 1px solid #d7d8f7;
-  box-shadow: 1px 1px 4px #d7d8f7, -1px -1px 4px #d7d8f7;
-  /* outline: 1px solid black; */
-}
-
-.createBtn {
-  position: relative;
-  right: 20%;
-  top: 18px;
-  width: 5rem;
-  font-weight: 600;
-  text-align: center;
-  letter-spacing: 2px;
-  color: #333333;
-  padding: 2px;
-  border-radius: 4px;
-  background: #d7d8f7;
-  cursor: pointer;
-}
-
-.createRecipeCntr .cancelBtn {
-  left: 20%;
-  top: -5px;
-}
-
-/* 'createRecipeCntr'>
-            <input placeholder='Enter Recipe Name...' className='recipeNameInput'/>
-            
-            <div className='addIngrdtCntr'>
-                <input placeholder='Add Ingredient...' className='addIngrdtInput'/>
-                <div className='addIngrdtBtn'>Add</div>
-            </div>
-
-            <div className='ingrdtsCntr'>
-                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
-                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
-                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
-                <div className='indIngrdtAdd'>Ingredient <p>X</p></div>
-            </div>
-
-            <div className='confirmBtn'>Create</div>
-            <div className='cancelBtn'>Cancel</div> */
