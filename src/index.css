@@ -744,3 +744,184 @@ body {
     bottom: 13px;
   }
 }
+
+@media screen and (min-width: 1300px) {
+  .mainHeader {
+    height: 4.2rem;
+  }
+
+  .appHeading {
+    top: -11px;
+    left: 2.6rem;
+    font-size: 30px;
+    letter-spacing: 5px;
+  }
+
+  .searchBtnClsd {
+    font-size: 30px;
+    right: 3.6rem;
+    top: 18px;
+  }
+
+  .searchbarCntr {
+    height: 2rem;
+    width: 30em;
+    right: 3rem;
+    top: 20px;
+  }
+
+  .searchbar {
+    /* outline: 1px solid black; */
+    left: 8px;
+    bottom: 26px;
+    width: 24rem;
+    font-size: 20px;
+  }
+
+  .searchBtn {
+    left: 37px;
+    bottom: 8px;
+    font-size: 30px;
+    padding: 10px 15px 10px 10px;
+  }
+
+  .createRecipeBtn { 
+    font-size: 26px;
+    letter-spacing: 5px;
+  }
+
+  .recipeNameInput {
+    top: 10px;
+    width: 25rem;
+    height: 1.8rem;
+    font-size: 18px;
+    padding: 2px 10px;
+  }
+
+  .createRecipeCntr .addIngrdtCntr { 
+    top: 17px;
+  }
+
+  .createRecipeCntr .indIngrdtAdd {
+    left: 6px;
+  }
+
+  .createRecipeCntr .addIngrdtInput {
+    height: 1.8rem;
+    width: 22rem;
+    font-size: 18px;
+    padding: 2px 8px; 
+  }
+
+  .createRecipeCntr .addIngrdtBtn {
+    letter-spacing: 5px;
+    font-size: 22px;
+    padding: 2px 8px;
+  }
+
+  .createRecipeCntr .ingrdtsCntr {
+    top: 26px;
+    height: 12rem;
+    grid-template-rows: repeat(12, 35px);
+  }
+
+  .createCnclBtns { 
+    height: 5.5rem;
+    width:  24rem;
+  }
+
+  .createBtn, .createRecipeCntr .cancelBtn{
+    top: 40px;
+    height: 2rem;
+    width: 8rem;
+    font-size: 23px;
+  }
+
+  .indRecipeClsd, .indRecipeOpen, .indRecipeEdit {
+    width: 38rem;
+  }
+
+  .recipeName {
+    letter-spacing: 7px;
+    font-size: 30px;
+  }
+
+  .editBtn {
+    left: 48%;
+    width: 7rem;
+    font-size: 24px;
+  }
+
+  .removeBtn {
+    left: 72%;
+    bottom: 18px;
+    width: 7.5rem;
+    font-size: 24px;
+  }
+
+  .ingrdtsHeading {
+    bottom: 8px;
+    font-size: 21px;
+    letter-spacing: 4px;
+  }
+
+  .ingrdtsCntr {
+    height: 10rem;
+    grid-template-columns: repeat(4, 9rem);
+    grid-template-rows: repeat(12, 34px);
+    /* outline: 1px solid black; */
+  }
+
+  .indIngrdt {
+    font-size: 18px;
+    left: 35px;
+    letter-spacing: 2px;
+    /* outline: 1px solid black; */
+  }
+
+  .addIngrdtInput {
+    font-size: 22px;
+    width: 23rem;
+    left: 20px;
+  }
+
+  .addIngrdtBtn {
+    width: 5.2rem;
+    font-size: 22px;
+    letter-spacing: 4px;
+    left: 35px;
+  }
+
+  .indRecipeEdit .ingrdtsCntr {
+    left: 22px;
+    width: 35rem;
+    grid-template-columns: repeat(4, 8.5rem);
+    grid-template-rows: repeat(12, 35px);
+  }
+
+  .indIngrdtAdd {
+    left: 15px;
+    top: 10px;
+    width: 7rem;
+    height: 1.4rem;
+    font-size: 18px;
+  }
+
+  .indIngrdtAdd p {
+    left: 10px;
+    font-size: 15px;
+  }
+
+  .confirmBtn, .cancelBtn {
+    left: 15%;
+    top: 20px;
+    width: 8.5rem;
+    font-size: 25px;
+  }
+
+  .cancelBtn {
+    left: 61.5%;
+    top: -12px;
+    bottom: 23px;
+  }
+}
