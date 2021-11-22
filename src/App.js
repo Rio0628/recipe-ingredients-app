@@ -1,79 +1,97 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import IndRecipe from './components/IndRecipe';
 import CreateRecipe from './components/CreateRecipe';
+import api from './api';
+// import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-function App() {
-  const [ currentRecipe, setCurrentRecipe ] = useState({ recipe: '', open: false, editOn: false })
-  const [ showSearchbar, setShowSearchbar ] = useState(false);
-  const [ showCreateComp, setShowCreateComp ] = useState(false);
-  const [ searchInput, setSearchInput ] = useState('');
-  const [ newRecipeName, setNewRecipeName ] = useState('');
-  const [ newIngredient, setNewIngredient ] = useState('');
-  const [ crntRecipeIngrdnts, setCrntRecipeIngrdnts ] = useState();
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isAPIloading: false,
+      showSearchbar: false,
+      showCreateComp: false,
+      recipes: [],
+      currentRecipe: { recipe: '', open: false, editOn: false },
+    }
+  }
 
-  const indRecipeCntr = [];
+  async componentDidMount () {
+    await this.setState({ isAPIloading: true });
+  
+    if ( this.state.isAPIloading === true ) {
+      await api.getAllRecipes().then(recipes => this.setState({ recipes: recipes.data.data }))
+      this.setState({ isAPIloading: false });
+    }
+  }
+  
+  render () {
+
+    const indRecipeCntr = [];
+
+    console.log(this.state.recipes)
+    const handleChange = (e) => {
+      console.log(e.target)
+
+      if (e.target.className === 'searchbar') {
+        this.setState({ searchInput: e.target.value });
+      }
+
+      if (e.target.className === 'recipeNameInput') {
+        this.setState({ newRecipeName: e.target.value });
+      }
+
+      if (e.target.className === 'addIngrdtInput') {
+        this.setState({ newIngredient: e.target.value });
+      }
+    }
     
-  const handleChange = (e) => {
-    console.log(e.target)
+    const handleSearchbar = () => {
+      this.setState({ showSearchbar: !this.state.showSearchbar });
+    }
+    
+    const handleClick = (e) => {
+      console.log(e.target)
 
-    if (e.target.className === 'searchbar') {
-      setSearchInput(e.target.value);
+      if (e.target.className === 'createRecipeBtn' || e.target.className === 'createBtn' || e.target.id === 'cnclCreate') {
+        this.setState({ showCreateComp: !this.state.showCreateComp });
+      }
+    } 
+
+    for (let i = 0; i < 2; i++) {
+      indRecipeCntr.push( <IndRecipe currentRecipe={this.state.currentRecipe} number={i} onClick={handleClick} key={'recipe ' + i}/> )
     }
 
-    if (e.target.className === 'recipeNameInput') {
-      setNewRecipeName(e.target.value);
-    }
+    console.log(this.state.currentRecipe)
 
-    if (e.target.className === 'addIngrdtInput') {
-      setNewIngredient(e.target.value);
-    }
-  }
-  
-  const handleSearchbar = () => {
-    setShowSearchbar(!showSearchbar)
-  }
-  
-  const handleClick = (e) => {
-    console.log(e.target)
+    return (
+      <div className="container">
+        <div className='nav-bar'>
+          <div className='mainHeader'>
+            <p className='appHeading'>Recipes</p>
+            
+            {this.state.showSearchbar ? 
+              <div className='searchbarCntr'>
+                <input placeholder='Search Recipe' className='searchbar' onChange={handleChange}/>
+                <FaSearch className='searchBtn' onClick={handleSearchbar}/>
+              </div> 
+            : <FaSearch className='searchBtnClsd' onClick={handleSearchbar}/> }
+            
+          </div>
 
-    if (e.target.className === 'createRecipeBtn' || e.target.className === 'createBtn' || e.target.id === 'cnclCreate') {
-      setShowCreateComp(!showCreateComp);
-    }
-  } 
-
-  for (let i = 0; i < 2; i++) {
-    indRecipeCntr.push( <IndRecipe currentRecipe={currentRecipe} number={i} onClick={handleClick} key={'recipe ' + i}/> )
-  }
-
-  console.log(currentRecipe)
-
-  return (
-    <div className="container">
-      <div className='nav-bar'>
-        <div className='mainHeader'>
-          <p className='appHeading'>Recipes</p>
+          <div className='createRecipeBtn' onClick={handleClick}>Create Recipe</div>
           
-          {showSearchbar ? 
-            <div className='searchbarCntr'>
-              <input placeholder='Search Recipe' className='searchbar' onChange={handleChange}/>
-              <FaSearch className='searchBtn' onClick={handleSearchbar}/>
-            </div> 
-          : <FaSearch className='searchBtnClsd' onClick={handleSearchbar}/> }
-          
+          {this.state.showCreateComp ? <CreateRecipe onClick={handleClick} onChange={handleChange}/> : null }
         </div>
 
-        <div className='createRecipeBtn' onClick={handleClick}>Create Recipe</div>
-        
-        { showCreateComp ? <CreateRecipe onClick={handleClick} onChange={handleChange}/> : null }
-      </div>
+        <div className='indRecipesCntr'>
+          {indRecipeCntr}
+        </div>
 
-      <div className='indRecipesCntr'>
-        {indRecipeCntr}
       </div>
-
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
