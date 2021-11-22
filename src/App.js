@@ -12,6 +12,8 @@ class App extends Component {
       isAPIloading: false,
       showSearchbar: false,
       showCreateComp: false,
+      currentRecipeIsOpen: false,
+      currentRecipeIsEditOn: false,
       recipes: [],
       currentRecipe: { recipe: '', open: false, editOn: false },
     }
@@ -31,6 +33,7 @@ class App extends Component {
     const indRecipeCntr = [];
 
     console.log(this.state.recipes)
+    
     const handleChange = (e) => {
       console.log(e.target)
 
@@ -57,14 +60,37 @@ class App extends Component {
       if (e.target.className === 'createRecipeBtn' || e.target.className === 'createBtn' || e.target.id === 'cnclCreate') {
         this.setState({ showCreateComp: !this.state.showCreateComp });
       }
+
+      if (e.target.className === 'indRecipeClsd' || e.target.className === 'indRecipeOpen') {
+        this.setState({ currentRecipeID: e.target.getAttribute('recipe') });
+        this.setState({ currentRecipeIsOpen: true });
+      }
+
+      if (e.target.className === 'indRecipeOpen') {
+        this.setState({ currentRecipeIsOpen: false });
+      }
+
+      if (e.target.className === 'editBtn') {
+        this.setState({ currentRecipeID: e.target.getAttribute('recipe') });
+        this.setState({ currentRecipeIsEditOn: true })
+        this.setState({ currentRecipeIsOpen: false });
+      }
+
+      if (e.target.id === 'cancelEdit') {
+        this.setState({ currentRecipeIsEditOn: false });
+        this.setState({ currentRecipeIsOpen: true });
+      }
     } 
 
     for (let i = 0; i < this.state.recipes.length; i++) {
-      indRecipeCntr.push( <IndRecipe currentRecipe={this.state.currentRecipe} recipe={this.state.recipes[i]} onClick={handleClick} key={'recipe ' + i}/> )
+      indRecipeCntr.push( <IndRecipe currentRecipeID={this.state.currentRecipeID} currentRecipeIsOpen={this.state.currentRecipeIsOpen} currentRecipeIsEditOn={this.state.currentRecipeIsEditOn} recipe={this.state.recipes[i]} onClick={handleClick} key={'recipe ' + i}/> )
     }
 
-    console.log(this.state.currentRecipe)
+    console.log(this.state.currentRecipeID)
+    console.log(this.state.currentRecipeIsOpen)
+    console.log(this.state.currentRecipeIsEditOn)
     console.log(this.state.recipes)
+    // console.log(indRecipeCntr)
 
     return (
       <div className="container">
