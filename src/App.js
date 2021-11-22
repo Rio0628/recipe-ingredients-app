@@ -59,11 +59,12 @@ class App extends Component {
       }
     } 
 
-    for (let i = 0; i < 2; i++) {
-      indRecipeCntr.push( <IndRecipe currentRecipe={this.state.currentRecipe} number={i} onClick={handleClick} key={'recipe ' + i}/> )
+    for (let i = 0; i < this.state.recipes.length; i++) {
+      indRecipeCntr.push( <IndRecipe currentRecipe={this.state.currentRecipe} recipe={this.state.recipes[i]} onClick={handleClick} key={'recipe ' + i}/> )
     }
 
     console.log(this.state.currentRecipe)
+    console.log(this.state.recipes)
 
     return (
       <div className="container">
