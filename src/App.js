@@ -16,6 +16,7 @@ class App extends Component {
       currentRecipeIsEditOn: false,
       crrntCreateIngrdnts: [],
       recipes: [],
+      isSearchOn: false,
     }
   }
 
@@ -53,7 +54,15 @@ class App extends Component {
     }
     
     const handleSearchbar = () => {
-      this.setState({ showSearchbar: !this.state.showSearchbar });
+      this.setState({ showSearchbar: true });
+    }
+
+    const searchRecipe = () => {
+      const searchResult = this.state.recipes.filter(recipe => recipe.name.toLowerCase().search(this.state.searchInput) !== -1 );
+      this.setState({ recipes: searchResult });
+    
+      this.setState({ isSearchOn: true });
+      this.setState({ showSearchbar: false });
     }
     
     const handleClick = async (e) => {
@@ -143,6 +152,11 @@ class App extends Component {
         } else { alert('No Name detected for Recipe') }
         
       }
+
+      if (e.target.className === 'backBtn') {
+        this.apiLoading();
+        this.setState({ isSearchOn: false });
+      }
     } 
 
     for (let i = 0; i < this.state.recipes.length; i++) {
@@ -163,13 +177,15 @@ class App extends Component {
             {this.state.showSearchbar ? 
               <div className='searchbarCntr'>
                 <input placeholder='Search Recipe' className='searchbar' onChange={handleChange}/>
-                <FaSearch className='searchBtn' onClick={handleSearchbar}/>
+                <FaSearch className='searchBtn' onClick={searchRecipe}/>
               </div> 
             : <FaSearch className='searchBtnClsd' onClick={handleSearchbar}/> }
             
           </div>
 
           <div className='createRecipeBtn' onClick={handleClick}>Create Recipe</div>
+          {this.state.isSearchOn ?  <div className='backBtn' onClick={handleClick}>Return</div> : null }
+         
           
           {this.state.showCreateComp ? <CreateRecipe crrntCreateIngrdnts={this.state.crrntCreateIngrdnts} onClick={handleClick} onChange={handleChange}/> : null }
         </div>

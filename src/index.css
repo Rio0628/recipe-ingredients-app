@@ -102,7 +102,18 @@ body {
   cursor: pointer;
 }
 
-.createRecipeBtn:hover {
+.backBtn {
+  position: relative;
+  color: #b3b7ee;
+  font-weight: 600;
+  text-align: center;
+  padding: 1px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0px -1px 1px #b3b7ee;
+}
+
+.createRecipeBtn:hover, .backBtn:hover {
   text-decoration: underline;
 }
 
@@ -462,7 +473,7 @@ body {
     padding: 5px 10px 5px 5px;
   }
 
-  .createRecipeBtn { font-size: 18px; }
+  .createRecipeBtn, .backBtn { font-size: 18px; }
 
   .recipeNameInput {
     top: 5px;
@@ -624,7 +635,7 @@ body {
     padding: 7px 12px 7px 7px;
   }
 
-  .createRecipeBtn { font-size: 22px; }
+  .createRecipeBtn, .backBtn { font-size: 22px; }
 
   .recipeNameInput {
     top: 7px;
@@ -795,7 +806,7 @@ body {
     padding: 10px 15px 10px 10px;
   }
 
-  .createRecipeBtn { 
+  .createRecipeBtn, .backBtn { 
     font-size: 26px;
     letter-spacing: 5px;
   }
