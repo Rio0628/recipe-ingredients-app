@@ -29,10 +29,8 @@ class App extends Component {
   }
   
   render () {
+    let indRecipeCntr = [];
 
-    const indRecipeCntr = [];
-
-    console.log(this.state.recipes)
     
     const handleChange = (e) => {
       console.log(e.target)
@@ -54,7 +52,7 @@ class App extends Component {
       this.setState({ showSearchbar: !this.state.showSearchbar });
     }
     
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
       console.log(e.target)
 
       if (e.target.className === 'createRecipeBtn' || e.target.className === 'createBtn' || e.target.id === 'cnclCreate') {
@@ -71,9 +69,37 @@ class App extends Component {
       }
 
       if (e.target.className === 'editBtn') {
-        this.setState({ currentRecipeID: e.target.getAttribute('recipe') });
+        await this.setState({ currentRecipeID: e.target.getAttribute('recipe') });
+        
+        const recipe = this.state.recipes.filter(recipe => recipe._id === this.state.currentRecipeID);
+      
+        this.setState({ currentEditIngrdts: recipe[0].ingredients });
+        
         this.setState({ currentRecipeIsEditOn: true })
         this.setState({ currentRecipeIsOpen: false });
+      }
+
+      if (e.target.className === 'addIngrdtBtn') {
+        this.setState(prevState => ({ currentEditIngrdts: [...prevState.currentEditIngrdts, this.state.newIngredient]}))
+        
+      }
+
+      if (e.target.className === 'removeIngrdtBtn') {
+        const updatedList = this.state.currentEditIngrdts.filter(ingredient => ingredient !== e.target.getAttribute('ingredient'))
+        this.setState({ currentEditIngrdts: updatedList });
+      }
+
+      if (e.target.className === 'confirmBtn') {
+        // getRecipeById
+        const id = e.target.getAttribute('recipe');
+        const name = e.target.getAttribute('recipeName');
+        const ingredients = this.state.currentEditIngrdts
+        const payload = {name: name, ingredients: ingredients}
+
+        await api.updateRecipeById(id, payload).then(res => alert('Recipe Updated Successfully'))
+
+        this.setState({ currentRecipeIsEditOn: false});
+        this.setState({ currentRecipeIsOpen: true });
       }
 
       if (e.target.id === 'cancelEdit') {
@@ -83,12 +109,10 @@ class App extends Component {
     } 
 
     for (let i = 0; i < this.state.recipes.length; i++) {
-      indRecipeCntr.push( <IndRecipe currentRecipeID={this.state.currentRecipeID} currentRecipeIsOpen={this.state.currentRecipeIsOpen} currentRecipeIsEditOn={this.state.currentRecipeIsEditOn} recipe={this.state.recipes[i]} onClick={handleClick} key={'recipe ' + i}/> )
+      indRecipeCntr.push( <IndRecipe currentRecipeID={this.state.currentRecipeID} currentRecipeIsOpen={this.state.currentRecipeIsOpen} currentRecipeIsEditOn={this.state.currentRecipeIsEditOn} currentEditIngrdts={this.state.currentEditIngrdts} recipe={this.state.recipes[i]} onClick={handleClick} onChange={handleChange} key={'recipe ' + i}/> )
     }
 
-    console.log(this.state.currentRecipeID)
-    console.log(this.state.currentRecipeIsOpen)
-    console.log(this.state.currentRecipeIsEditOn)
+    console.log(this.state.currentEditIngrdts)
     console.log(this.state.recipes)
     // console.log(indRecipeCntr)
 

@@ -46,7 +46,7 @@ updateRecipe = async (req, res) => {
         if (err) {
             return res.status(404).json({
                 err,
-                message: 'Movie not found!',
+                message: 'Recipe not found!',
             })
         }
         recipe.name = body.name;
@@ -55,7 +55,7 @@ updateRecipe = async (req, res) => {
             .then(() => {
                 return res.status(200).json({
                     success: true,
-                    id: movie._id,
+                    id: recipe._id,
                     message: 'Recipe updated!',
                 })
             })
@@ -89,8 +89,8 @@ getRecipeById = async (req, res) => {
         if (!recipe) {
             return res.status(400).json({ success: false, error: 'Recipe not found' })
         }
-        return res.status(200).json({ success: true, data: movie })
-    }).catch(err => console.log(err))
+        return res.status(200).json({ success: true, data: recipe })
+    }).clone().catch(err => console.log(err))
 }
 
 getRecipes = async (req, res) => {

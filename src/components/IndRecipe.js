@@ -7,26 +7,29 @@ const IndRecipe = (props) => {
         indIngrdts.push( <p className='indIngrdt' key={'indIngrdnt ' + i}>{props.recipe.ingredients[i]}</p> );
     }
 
-    for (let i = 0; i < props.recipe.ingredients.length; i++) {
-        indIngrdtsEdit.push( <div className='indIngrdtAdd' key={'indIngrdntEdit ' + i}>{props.recipe.ingredients[i]}<p className='removeIngrdtBtn' onClick={props.onClick}>X</p></div> );
+    if (props.currentEditIngrdts) {
+        for (let i = 0; i < props.currentEditIngrdts.length; i++) {
+            indIngrdtsEdit.push( <div className='indIngrdtAdd' key={'indIngrdntEdit ' + i} >{props.currentEditIngrdts[i]}<p className='removeIngrdtBtn' ingredient={props.currentEditIngrdts[i]} onClick={props.onClick}>X</p></div> );
+        }
     }
+    
+ 
 
     if (props.recipe._id === props.currentRecipeID) {
         isEditOn = props.currentRecipeIsEditOn;
         isOpen = props.currentRecipeIsOpen;
-        console.log('mario')
     }
 
-    console.log(props.recipe)
-    console.log(props.currentRecipeID)
-    console.log(props.currentRecipeIsOpen)
-    console.log(props.currentRecipeIsEditOn)
+    // console.log(props.recipe)
+    // console.log(props.currentRecipeID)
+    // console.log(props.currentRecipeIsOpen)
+    // console.log(props.currentRecipeIsEditOn)
 
     return (
-        <div className='indRecipeCntr' onClick={props.onClick}>
+        <div className='indRecipeCntr'>
            
            {!isOpen && !isEditOn ? 
-                <div className='indRecipeClsd' recipe={props.recipe._id}>
+                <div className='indRecipeClsd' recipe={props.recipe._id} onClick={props.onClick}>
                     <p className='recipeName'>{props.recipe.name}</p>
 
                     <div className='editBtn' recipe={props.recipe._id} onClick={props.onClick}>Edit</div>
@@ -35,7 +38,7 @@ const IndRecipe = (props) => {
             : null }
 
             {isOpen ? 
-                <div className='indRecipeOpen' recipe={props.recipe._id}>
+                <div className='indRecipeOpen' recipe={props.recipe._id} onClick={props.onClick}>
                     <p className='recipeName'>{props.recipe.name}</p>
 
                     <p className='ingrdtsHeading'>Ingredients</p>
@@ -62,7 +65,7 @@ const IndRecipe = (props) => {
                         {indIngrdtsEdit}
                     </div>
 
-                    <div className='confirmBtn' recipe={props.recipe._id} onClick={props.onClick}>Confirm</div>
+                    <div className='confirmBtn' recipeName={props.recipe.name}  recipe={props.recipe._id} onClick={props.onClick}>Confirm</div>
                     <div className='cancelBtn' id='cancelEdit' onClick={props.onClick}>Cancel</div>
                 </div>
             : null }
