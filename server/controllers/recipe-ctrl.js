@@ -69,7 +69,7 @@ updateRecipe = async (req, res) => {
 }
 
 deleteRecipe = async(req, res) => {
-    await Recipe.findOneAndDelete({ _iq: req.params.id }, (err, recipe) => {
+    await Recipe.findOneAndDelete({ _id: req.params.id }, (err, recipe) => {
         if (err) { return res.status(400).json({ success: false, error: err })}
     
         if (!recipe) {

@@ -19,13 +19,17 @@ class App extends Component {
     }
   }
 
-  async componentDidMount () {
+  async apiLoading () {
     await this.setState({ isAPIloading: true });
   
     if ( this.state.isAPIloading === true ) {
-      await api.getAllRecipes().then(recipes => this.setState({ recipes: recipes.data.data }))
+      await api.getAllRecipes().then(recipes => this.setState({ recipes: recipes.data.data } )).catch(err => this.setState({recipes: ''}) ) 
       this.setState({ isAPIloading: false });
     }
+  }
+
+  componentDidMount () {
+    this.apiLoading();
   }
   
   render () {
@@ -97,6 +101,7 @@ class App extends Component {
         const payload = {name: name, ingredients: ingredients}
 
         await api.updateRecipeById(id, payload).then(res => alert('Recipe Updated Successfully'))
+        this.apiLoading();
 
         this.setState({ currentRecipeIsEditOn: false});
         this.setState({ currentRecipeIsOpen: true });
@@ -105,6 +110,14 @@ class App extends Component {
       if (e.target.id === 'cancelEdit') {
         this.setState({ currentRecipeIsEditOn: false });
         this.setState({ currentRecipeIsOpen: true });
+      }
+
+      if (e.target.className === 'removeBtn') {
+        await this.setState({ currentRecipeId: e.target.getAttribute('recipe')});
+        // console.log(e.target.getAttribute('recipe'))
+        await api.deleteRecipeById(this.state.currentRecipeId);
+
+        this.apiLoading();
       }
     } 
 
