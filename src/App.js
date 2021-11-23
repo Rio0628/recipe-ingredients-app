@@ -14,8 +14,8 @@ class App extends Component {
       showCreateComp: false,
       currentRecipeIsOpen: false,
       currentRecipeIsEditOn: false,
+      crrntCreateIngrdnts: [],
       recipes: [],
-      currentRecipe: { recipe: '', open: false, editOn: false },
     }
   }
 
@@ -83,12 +83,12 @@ class App extends Component {
         this.setState({ currentRecipeIsOpen: false });
       }
 
-      if (e.target.className === 'addIngrdtBtn') {
+      if (e.target.id === 'addIngrdtBtn') {
         this.setState(prevState => ({ currentEditIngrdts: [...prevState.currentEditIngrdts, this.state.newIngredient]}))
         
       }
 
-      if (e.target.className === 'removeIngrdtBtn') {
+      if (e.target.id === 'removeIngrdtEdit') {
         const updatedList = this.state.currentEditIngrdts.filter(ingredient => ingredient !== e.target.getAttribute('ingredient'))
         this.setState({ currentEditIngrdts: updatedList });
       }
@@ -119,13 +119,38 @@ class App extends Component {
 
         this.apiLoading();
       }
+
+      if (e.target.id === 'addIngrdtCreate') {
+        
+        if (this.state.newIngredient) {
+          this.setState(prevState => ({ crrntCreateIngrdnts: [...prevState.crrntCreateIngrdnts, this.state.newIngredient]}));
+        } else { alert('No Ingredient Decteted!') }
+
+      }
+
+      if (e.target.id === 'removeCreateIngrdt') {
+        const updatedList = this.state.crrntCreateIngrdnts.filter(ingredient => ingredient !== e.target.getAttribute('ingredient'));
+        this.setState({ crrntCreateIngrdnts: updatedList });
+      }
+
+      if (e.target.className === 'createBtn') {
+        if (this.state.newRecipeName) {
+          const payload = {name: this.state.newRecipeName, ingredients: this.state.crrntCreateIngrdnts};
+
+          await api.insertRecipe(payload).then(res => alert('Recipe Created!'))
+
+          this.apiLoading();
+        } else { alert('No Name detected for Recipe') }
+        
+      }
     } 
 
     for (let i = 0; i < this.state.recipes.length; i++) {
       indRecipeCntr.push( <IndRecipe currentRecipeID={this.state.currentRecipeID} currentRecipeIsOpen={this.state.currentRecipeIsOpen} currentRecipeIsEditOn={this.state.currentRecipeIsEditOn} currentEditIngrdts={this.state.currentEditIngrdts} recipe={this.state.recipes[i]} onClick={handleClick} onChange={handleChange} key={'recipe ' + i}/> )
     }
-
-    console.log(this.state.currentEditIngrdts)
+    
+    console.log(this.state.test)
+    // console.log(this.state.currentEditIngrdts)
     console.log(this.state.recipes)
     // console.log(indRecipeCntr)
 
@@ -146,7 +171,7 @@ class App extends Component {
 
           <div className='createRecipeBtn' onClick={handleClick}>Create Recipe</div>
           
-          {this.state.showCreateComp ? <CreateRecipe onClick={handleClick} onChange={handleChange}/> : null }
+          {this.state.showCreateComp ? <CreateRecipe crrntCreateIngrdnts={this.state.crrntCreateIngrdnts} onClick={handleClick} onChange={handleChange}/> : null }
         </div>
 
         <div className='indRecipesCntr'>

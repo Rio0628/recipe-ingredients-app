@@ -9,7 +9,7 @@ const IndRecipe = (props) => {
 
     if (props.currentEditIngrdts) {
         for (let i = 0; i < props.currentEditIngrdts.length; i++) {
-            indIngrdtsEdit.push( <div className='indIngrdtAdd' key={'indIngrdntEdit ' + i} >{props.currentEditIngrdts[i]}<p className='removeIngrdtBtn' ingredient={props.currentEditIngrdts[i]} onClick={props.onClick}>X</p></div> );
+            indIngrdtsEdit.push( <div className='indIngrdtAdd' key={'indIngrdntEdit ' + i} >{props.currentEditIngrdts[i]}<p className='removeIngrdtBtn' id='removeIngrdtEdit' ingredient={props.currentEditIngrdts[i]} onClick={props.onClick}>X</p></div> );
         }
     }
     
@@ -58,7 +58,7 @@ const IndRecipe = (props) => {
         
                     <div className='addIngrdtCntr'>
                         <input placeholder='Add Ingredient...' className='addIngrdtInput' onChange={props.onChange}/>
-                        <div className='addIngrdtBtn' onClick={props.onClick}>Add</div>
+                        <div className='addIngrdtBtn' id='addIngrdtBtn' onClick={props.onClick}>Add</div>
                     </div>
 
                     <div className='ingrdtsCntr'>
