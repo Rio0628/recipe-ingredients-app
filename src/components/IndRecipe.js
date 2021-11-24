@@ -3,27 +3,23 @@ import React from 'react';
 const IndRecipe = (props) => {
     let indIngrdts = [], indIngrdtsEdit = [], isEditOn = false, isOpen = false;
 
+    // For statement to show ingredients of a certain recipes when it is in its open view
     for (let i = 0; i < props.recipe.ingredients.length; i++) {
         indIngrdts.push( <p className='indIngrdt' key={'indIngrdnt ' + i}>{props.recipe.ingredients[i]}</p> );
     }
 
+    // For statement to show ingredients of the edit view of a certain recipe only if there are ingredients within the recipe 
     if (props.currentEditIngrdts) {
         for (let i = 0; i < props.currentEditIngrdts.length; i++) {
             indIngrdtsEdit.push( <div className='indIngrdtAdd' key={'indIngrdntEdit ' + i} >{props.currentEditIngrdts[i]}<p className='removeIngrdtBtn' id='removeIngrdtEdit' ingredient={props.currentEditIngrdts[i]} onClick={props.onClick}>X</p></div> );
         }
     }
     
- 
-
+    // Gives the values of the props isEditOn and isOpen to local values  if the current recipe's id is the same to a recipe's id 
     if (props.recipe._id === props.currentRecipeID) {
         isEditOn = props.currentRecipeIsEditOn;
         isOpen = props.currentRecipeIsOpen;
     }
-
-    // console.log(props.recipe)
-    // console.log(props.currentRecipeID)
-    // console.log(props.currentRecipeIsOpen)
-    // console.log(props.currentRecipeIsEditOn)
 
     return (
         <div className='indRecipeCntr'>
@@ -44,7 +40,7 @@ const IndRecipe = (props) => {
                     <p className='ingrdtsHeading'>Ingredients</p>
 
                     <div className='ingrdtsCntr'>
-                        {indIngrdts}
+                        {props.recipe.ingredients.length > 0 ? indIngrdts : <p className='noIngrdtsMsg'>There are no ingredients within this recipe. </p>}
                     </div>
 
                     <div className='editBtn' onClick={props.onClick} recipe={props.recipe._id}>Edit</div>

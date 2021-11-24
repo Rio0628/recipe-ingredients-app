@@ -29,7 +29,6 @@ body {
 .appHeading {
   position: relative;
   left: .5rem;
-  /* outline: 1px solid black; */
   color: #b3b7ee;
   font-size: 18px;
   font-weight: 600;
@@ -42,7 +41,6 @@ body {
   right: .6rem;
   top: 1rem;
   font-size: 20px;
-  /* outline: 1px solid black; */
   color: #b3b7ee;
   padding: 3px;
   border-radius: 50%;
@@ -80,7 +78,6 @@ body {
 .searchBtn {
   position: relative;
   bottom: 2px;
-  /* right: 1px; */
   outline: 1px solid #d7d8f7;
   color: #b3b7ee;
   font-size: 20px;
@@ -130,7 +127,6 @@ body {
 .recipeNameInput {
   position: relative;
   top: 3px;
-  /* left: 15%; */
   width: 13rem;
   border: none;
   outline: 1px solid #d7d8f7;
@@ -141,8 +137,6 @@ body {
 .createRecipeCntr .addIngrdtCntr {
   top: 7px;
   display: flex;
-  /* align-items: center; */
-  /* outline: 1px solid green; */
 }
 
 .createRecipeCntr .addIngrdtInput {
@@ -155,7 +149,6 @@ body {
   position: relative;
   padding: 1px;
   left: 2px;
-  /* top: 1px; */
   border-radius: 4px;
   background: #d7d8f7;
   cursor: pointer;
@@ -166,7 +159,6 @@ body {
   grid-template-rows: repeat(12, 25px);
   outline: 1px solid #d7d8f7;
   box-shadow: 1px 1px 4px #d7d8f7, -1px -1px 4px #d7d8f7;
-  /* outline: 1px solid black; */
 }
 
 .createCnclBtns {
@@ -174,12 +166,10 @@ body {
   justify-content: space-between;
   width: 16rem;
   height: 3rem;
-  /* outline: 1px solid black; */
 }
 
 .createBtn {
   position: relative;
-  /* right: 20%; */
   top: 18px;
   width: 5rem;
   height: 1.3rem;
@@ -208,8 +198,6 @@ body {
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
-  /* background: sred; */
-  /* outline: 1px solid red; */
 }
 
 .indRecipesCntr::-webkit-scrollbar {
@@ -240,6 +228,7 @@ body {
   letter-spacing: 3px;
   color: #333333;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .editBtn {
@@ -285,22 +274,17 @@ body {
   font-size: 15px;
   text-align: center;
   letter-spacing: 2px;
-  /* outline: 1px solid red; */
 }
 
 .ingrdtsCntr {
   position: relative;
-  /* left: 10px; */
   bottom: 10px;
   display: grid;
   grid-template-columns: repeat(3, 5.5rem);
   grid-template-rows: repeat(12, 20px);
-  /* grid-row-gap: 10px; */
   height: 5rem;
-  /* box-shadow: 1px 1px 1px #d7d8f7, -1px -1px 1px #d7d8f7; */
   overflow-y: scroll;
   overflow-x: hidden;
-  /* outline: 1px solid black; */
 }
 
 .ingrdtsCntr::-webkit-scrollbar{
@@ -317,7 +301,6 @@ body {
   font-size: 15px;
   text-align: center;
   color: #333333;
-  /* outline: 1px solid black; */
 }
 
 .addIngrdtCntr {
@@ -340,7 +323,6 @@ body {
 .addIngrdtBtn {
   position: relative;
   left: 5%;
-  /* bottom: 8px; */
   width: 3rem;
   font-weight: 600;
   text-align: center;
@@ -359,7 +341,6 @@ body {
   grid-template-columns: repeat(3, 5.35rem);
   grid-template-rows: repeat(12, 25px);
   outline: 1px solid #d7d8f7;
-  /* box-shadow: 1px 1px 2px #d7d8f7, -1px -1px 2px #d7d8f7; */
 }
 
 .indIngrdtAdd {
@@ -376,12 +357,13 @@ body {
   padding: 0px 3px;  
   background: rgba(226, 223, 223, .5);
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .indIngrdtAdd p {
-  position: relative;
-  left: 2px;
-  bottom: 11px;
+  position: absolute;
+  right: 3px;
+  top: -11px;
   height: 13px;
   width: 13px;
   line-height: 14px;
@@ -390,14 +372,12 @@ body {
   text-align: center;
   color: darkred;
   padding: 1px;
-  /* outline: 1px solid black; */
   border-radius: 5px;
   cursor: pointer;
 }
 
 .indIngrdtAdd p:hover {
   background: #fbf9ff;
-  /* color: red; */
 }
 
 .confirmBtn {
@@ -435,6 +415,14 @@ body {
   cursor: pointer;
 }
 
+.noIngrdtsMsg {
+  position: relative;
+  left: 10px;
+  height: 1.5rem;
+  width: 15rem;
+  letter-spacing: 2px; 
+}
+
 
 @media screen and (min-width: 600px) {
   .mainHeader {
@@ -459,7 +447,6 @@ body {
   }
 
   .searchbar {
-    /* outline: 1px solid black; */
     left: 8px;
     bottom: 13px;
     width: 16rem;
@@ -552,9 +539,8 @@ body {
   }
 
   .indIngrdt {
-    font-size: 17px;
+    font-size: 15px;
     left: 20px;
-    /* outline: 1px solid black; */
   }
 
   .addIngrdtInput {
@@ -593,6 +579,10 @@ body {
     left: 57%;
     bottom: 10.5px;
   }
+
+  .noIngrdtsMsg {
+    width: 18rem;
+  }
 }
 
 
@@ -621,7 +611,6 @@ body {
   }
 
   .searchbar {
-    /* outline: 1px solid black; */
     left: 8px;
     bottom: 18px;
     width: 20rem;
@@ -717,14 +706,12 @@ body {
     height: 7rem;
     grid-template-columns: repeat(4, 6.2rem);
     grid-template-rows: repeat(12, 25px);
-    /* outline: 1px solid black; */
   }
 
   .indIngrdt {
-    font-size: 17px;
+    font-size: 15px;
     left: 8px;
-    letter-spacing: 1px;
-    /* outline: 1px solid black; */
+    letter-spacing: 0px;
   }
 
   .addIngrdtInput {
@@ -764,6 +751,10 @@ body {
     left: 57%;
     bottom: 13px;
   }
+
+  .noIngrdtsMsg {
+    width: 25rem;
+  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -792,7 +783,6 @@ body {
   }
 
   .searchbar {
-    /* outline: 1px solid black; */
     left: 8px;
     bottom: 26px;
     width: 24rem;
@@ -890,14 +880,12 @@ body {
     height: 10rem;
     grid-template-columns: repeat(4, 9rem);
     grid-template-rows: repeat(12, 34px);
-    /* outline: 1px solid black; */
   }
 
   .indIngrdt {
-    font-size: 18px;
+    font-size: 16px;
     left: 35px;
-    letter-spacing: 2px;
-    /* outline: 1px solid black; */
+    letter-spacing: 0px;
   }
 
   .addIngrdtInput {
@@ -929,7 +917,6 @@ body {
   }
 
   .indIngrdtAdd p {
-    left: 10px;
     font-size: 15px;
   }
 
@@ -944,5 +931,11 @@ body {
     left: 61.5%;
     top: -12px;
     bottom: 23px;
+  }
+  
+  .noIngrdtsMsg {
+    font-size: 17px;
+    letter-spacing: 4px;
+    width: 35rem;
   }
 }
